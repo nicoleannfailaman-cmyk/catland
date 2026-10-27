@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://python-playground.com/ -->
+<html lang="en" data-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>.ͼ1.cm-focused {outline: 1px dotted #212121;}
+.ͼ1 {position: relative !important; box-sizing: border-box; display: flex !important; flex-direction: column;}
+.ͼ1 .cm-scroller {display: flex !important; align-items: flex-start !important; font-family: monospace; line-height: 1.4; height: 100%; overflow-x: auto; position: relative; z-index: 0; overflow-anchor: none;}
+.ͼ1 .cm-content[contenteditable=true] {-webkit-user-modify: read-write-plaintext-only;}
+.ͼ1 .cm-content {margin: 0; flex-grow: 2; flex-shrink: 0; display: block; white-space: pre; word-wrap: normal; box-sizing: border-box; min-height: 100%; padding: 4px 0; outline: none;}
+.ͼ1 .cm-lineWrapping {white-space: pre-wrap; white-space: break-spaces; word-break: break-word; overflow-wrap: anywhere; flex-shrink: 1;}
+.ͼ2 .cm-content {caret-color: black;}
+.ͼ3 .cm-content {caret-color: white;}
+.ͼ1 .cm-line {display: block; padding: 0 2px 0 6px;}
+.ͼ1 .cm-layer > * {position: absolute;}
+.ͼ1 .cm-layer {user-select: none; position: absolute; left: 0; top: 0; contain: size style;}
+.ͼ2 .cm-selectionBackground {background: #d9d9d9;}
+.ͼ3 .cm-selectionBackground {background: #222;}
+.ͼ2.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground {background: #d7d4f0;}
+.ͼ3.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground {background: #233;}
+.ͼ1 .cm-cursorLayer {pointer-events: none;}
+.ͼ1.cm-focused > .cm-scroller > .cm-cursorLayer {animation: steps(1) cm-blink 1.2s infinite;}
+@keyframes cm-blink {50% {opacity: 0;}}
+@keyframes cm-blink2 {50% {opacity: 0;}}
+.ͼ1 .cm-cursor, .ͼ1 .cm-dropCursor {border-left: 1.2px solid black; margin-left: -0.6px; pointer-events: none;}
+.ͼ1 .cm-cursor {display: none;}
+.ͼ3 .cm-cursor {border-left-color: #ddd;}
+.ͼ1 .cm-selectionHandle {background-color: currentColor; width: 1.5px;}
+.ͼ1 .cm-selectionHandle-start::before, .ͼ1 .cm-selectionHandle-end::before {content: ""; background-color: inherit; border-radius: 50%; width: 8px; height: 8px; position: absolute; left: -3.25px;}
+.ͼ1 .cm-selectionHandle-start::before {top: -8px;}
+.ͼ1 .cm-selectionHandle-end::before {bottom: -8px;}
+.ͼ1 .cm-dropCursor {position: absolute;}
+.ͼ1.cm-focused > .cm-scroller > .cm-cursorLayer .cm-cursor {display: block;}
+.ͼ1 .cm-iso {unicode-bidi: isolate;}
+.ͼ1 .cm-announced {position: fixed; top: -10000px;}
+@media print {.ͼ1 .cm-announced {display: none;}}
+.ͼ2 .cm-activeLine {background-color: #cceeff44;}
+.ͼ3 .cm-activeLine {background-color: #99eeff33;}
+.ͼ2 .cm-specialChar {color: red;}
+.ͼ3 .cm-specialChar {color: #f78;}
+.ͼ1 .cm-gutters {flex-shrink: 0; display: flex; height: 100%; box-sizing: border-box; z-index: 200;}
+.ͼ1 .cm-gutters-before {inset-inline-start: 0;}
+.ͼ1 .cm-gutters-after {inset-inline-end: 0;}
+.ͼ2 .cm-gutters.cm-gutters-before {border-right-width: 1px;}
+.ͼ2 .cm-gutters.cm-gutters-after {border-left-width: 1px;}
+.ͼ2 .cm-gutters {background-color: #f5f5f5; color: #6c6c6c; border: 0px solid #ddd;}
+.ͼ3 .cm-gutters {background-color: #333338; color: #ccc;}
+.ͼ1 .cm-gutter {display: flex !important; flex-direction: column; flex-shrink: 0; box-sizing: border-box; min-height: 100%; overflow: hidden;}
+.ͼ1 .cm-gutterElement {box-sizing: border-box;}
+.ͼ1 .cm-lineNumbers .cm-gutterElement {padding: 0 3px 0 5px; min-width: 20px; text-align: right; white-space: nowrap;}
+.ͼ2 .cm-activeLineGutter {background-color: #e2f2ff;}
+.ͼ3 .cm-activeLineGutter {background-color: #222227;}
+.ͼ1 .cm-panels {box-sizing: border-box; position: sticky; left: 0; right: 0; z-index: 300;}
+.ͼ2 .cm-panels {background-color: #f5f5f5; color: black;}
+.ͼ2 .cm-panels-top {border-bottom: 1px solid #ddd;}
+.ͼ2 .cm-panels-bottom {border-top: 1px solid #ddd;}
+.ͼ3 .cm-panels {background-color: #333338; color: white;}
+.ͼ1 .cm-dialog label {font-size: 80%;}
+.ͼ1 .cm-dialog {padding: 2px 19px 4px 6px; position: relative;}
+.ͼ1 .cm-dialog-close {position: absolute; top: 3px; right: 4px; background-color: inherit; border: none; font: inherit; font-size: 14px; padding: 0;}
+.ͼ1 .cm-tab {display: inline-block; overflow: hidden; vertical-align: bottom;}
+.ͼ1 .cm-widgetBuffer {vertical-align: text-top; height: 1em; width: 0; display: inline;}
+.ͼ1 .cm-placeholder {color: #888; display: inline-block; vertical-align: top; user-select: none;}
+.ͼ1 .cm-highlightSpace {background-image: radial-gradient(circle at 50% 55%, #aaa 20%, transparent 5%); background-position: center;}
+.ͼ1 .cm-highlightTab {background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="20"><path stroke="%23888" stroke-width="1" fill="none" d="M1 10H196L190 5M190 15L196 10M197 4L197 16"/></svg>'); background-size: auto 100%; background-position: right 90%; background-repeat: no-repeat;}
+.ͼ1 .cm-trailingSpace {background-color: #ff332255;}
+.ͼ1 .cm-button {vertical-align: middle; color: inherit; font-size: 70%; padding: .2em 1em; border-radius: 1px;}
+.ͼ2 .cm-button:active {background-image: linear-gradient(#b4b4b4, #d0d3d6);}
+.ͼ2 .cm-button {background-image: linear-gradient(#eff1f5, #d9d9df); border: 1px solid #888;}
+.ͼ3 .cm-button:active {background-image: linear-gradient(#111, #333);}
+.ͼ3 .cm-button {background-image: linear-gradient(#393939, #111); border: 1px solid #888;}
+.ͼ1 .cm-textfield {vertical-align: middle; color: inherit; font-size: 70%; border: 1px solid silver; padding: .2em .5em;}
+.ͼ2 .cm-textfield {background-color: white;}
+.ͼ3 .cm-textfield {border: 1px solid #555; background-color: inherit;}
+.ͼ1 .cm-selectionMatch {background-color: #99ff7780;}
+.ͼ1 .cm-searchMatch .cm-selectionMatch {background-color: transparent;}
+.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > li, .ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > completion-section {padding: 1px 3px; line-height: 1.2;}
+.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > li {overflow-x: hidden; text-overflow: ellipsis; cursor: pointer;}
+.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul > completion-section {display: list-item; border-bottom: 1px solid silver; padding-left: 0.5em; opacity: 0.7;}
+.ͼ1 .cm-tooltip.cm-tooltip-autocomplete > ul {font-family: monospace; white-space: nowrap; overflow: hidden auto; max-width: 700px; max-width: min(700px, 95vw); min-width: 250px; max-height: 10em; height: 100%; list-style: none; margin: 0; padding: 0;}
+.ͼ2 .cm-tooltip-autocomplete ul li[aria-selected] {background: #17c; color: white;}
+.ͼ2 .cm-tooltip-autocomplete-disabled ul li[aria-selected] {background: #777;}
+.ͼ3 .cm-tooltip-autocomplete ul li[aria-selected] {background: #347; color: white;}
+.ͼ3 .cm-tooltip-autocomplete-disabled ul li[aria-selected] {background: #444;}
+.ͼ1 .cm-completionListIncompleteTop:before, .ͼ1 .cm-completionListIncompleteBottom:after {content: "···"; opacity: 0.5; display: block; text-align: center; cursor: pointer;}
+.ͼ1 .cm-tooltip.cm-completionInfo {position: absolute; padding: 3px 9px; width: max-content; max-width: 400px; box-sizing: border-box; white-space: pre-line;}
+.ͼ1 .cm-completionInfo.cm-completionInfo-left {right: 100%;}
+.ͼ1 .cm-completionInfo.cm-completionInfo-right {left: 100%;}
+.ͼ1 .cm-completionInfo.cm-completionInfo-left-narrow {right: 30px;}
+.ͼ1 .cm-completionInfo.cm-completionInfo-right-narrow {left: 30px;}
+.ͼ2 .cm-snippetField {background-color: #00000022;}
+.ͼ3 .cm-snippetField {background-color: #ffffff22;}
+.ͼ1 .cm-snippetFieldPosition {vertical-align: text-top; width: 0; height: 1.15em; display: inline-block; margin: 0 -0.7px -.7em; border-left: 1.4px dotted #888;}
+.ͼ1 .cm-completionMatchedText {text-decoration: underline;}
+.ͼ1 .cm-completionDetail {margin-left: 0.5em; font-style: italic;}
+.ͼ1 .cm-completionIcon {font-size: 90%; width: .8em; display: inline-block; text-align: center; padding-right: .6em; opacity: 0.6; box-sizing: content-box;}
+.ͼ1 .cm-completionIcon-function:after, .ͼ1 .cm-completionIcon-method:after {content: 'ƒ';}
+.ͼ1 .cm-completionIcon-class:after {content: '○';}
+.ͼ1 .cm-completionIcon-interface:after {content: '◌';}
+.ͼ1 .cm-completionIcon-variable:after {content: '𝑥';}
+.ͼ1 .cm-completionIcon-constant:after {content: '𝐶';}
+.ͼ1 .cm-completionIcon-type:after {content: '𝑡';}
+.ͼ1 .cm-completionIcon-enum:after {content: '∪';}
+.ͼ1 .cm-completionIcon-property:after {content: '□';}
+.ͼ1 .cm-completionIcon-keyword:after {content: '🔑︎';}
+.ͼ1 .cm-completionIcon-namespace:after {content: '▢';}
+.ͼ1 .cm-completionIcon-text:after {content: 'abc'; font-size: 50%; vertical-align: middle;}
+.ͼ1 .cm-tooltip {z-index: 500; box-sizing: border-box;}
+.ͼ2 .cm-tooltip {border: 1px solid #bbb; background-color: #f5f5f5;}
+.ͼ2 .cm-tooltip-section:not(:first-child) {border-top: 1px solid #bbb;}
+.ͼ3 .cm-tooltip {background-color: #333338; color: white;}
+.ͼ1 .cm-tooltip-arrow:before, .ͼ1 .cm-tooltip-arrow:after {content: ''; position: absolute; width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent;}
+.ͼ1 .cm-tooltip-above .cm-tooltip-arrow:before {border-top: 7px solid #bbb;}
+.ͼ1 .cm-tooltip-above .cm-tooltip-arrow:after {border-top: 7px solid #f5f5f5; bottom: 1px;}
+.ͼ1 .cm-tooltip-above .cm-tooltip-arrow {bottom: -7px;}
+.ͼ1 .cm-tooltip-below .cm-tooltip-arrow:before {border-bottom: 7px solid #bbb;}
+.ͼ1 .cm-tooltip-below .cm-tooltip-arrow:after {border-bottom: 7px solid #f5f5f5; top: 1px;}
+.ͼ1 .cm-tooltip-below .cm-tooltip-arrow {top: -7px;}
+.ͼ1 .cm-tooltip-arrow {height: 7px; width: 14px; position: absolute; z-index: -1; overflow: hidden;}
+.ͼ3 .cm-tooltip .cm-tooltip-arrow:before {border-top-color: #333338; border-bottom-color: #333338;}
+.ͼ3 .cm-tooltip .cm-tooltip-arrow:after {border-top-color: transparent; border-bottom-color: transparent;}
+.ͼ1.cm-focused .cm-matchingBracket {background-color: #328c8252;}
+.ͼ1.cm-focused .cm-nonmatchingBracket {background-color: #bb555544;}
+.ͼ1 .cm-foldPlaceholder {background-color: #eee; border: 1px solid #ddd; color: #888; border-radius: .2em; margin: 0 1px; padding: 0 1px; cursor: pointer;}
+.ͼ1 .cm-foldGutter span {padding: 0 1px; cursor: pointer;}
+.ͼ22 {height: 100%;}
+.ͼ22 .cm-scroller {overflow: auto; max-height: 100%;}
+.ͼ20 {background-color: #1a1d29;}
+.ͼ20 .cm-content {color: #e2e8f0;}
+.ͼ20 .cm-gutters {background-color: #252a37; color: #718096; border: none;}
+.ͼ20.cm-focused .cm-cursor {border-left-color: #e2e8f0;}
+.ͼ20.cm-focused .cm-selectionBackground, .ͼ20 .cm-selectionBackground {background-color: #374151;}
+.ͼ20 .cm-activeLine {background-color: #252a37;}
+.ͼp {color: #c678dd;}
+.ͼq {color: #e06c75;}
+.ͼr {color: #61afef;}
+.ͼs {color: #d19a66;}
+.ͼt {color: #abb2bf;}
+.ͼu {color: #e5c07b;}
+.ͼv {color: #56b6c2;}
+.ͼw {color: #7d8799;}
+.ͼx {font-weight: bold;}
+.ͼy {font-style: italic;}
+.ͼz {text-decoration: line-through;}
+.ͼ10 {color: #7d8799; text-decoration: underline;}
+.ͼ11 {font-weight: bold; color: #e06c75;}
+.ͼ12 {color: #d19a66;}
+.ͼ13 {color: #98c379;}
+.ͼ14 {color: #ffffff;}
+.ͼo {color: #abb2bf; background-color: #282c34;}
+.ͼo .cm-content {caret-color: #528bff;}
+.ͼo .cm-cursor, .ͼo .cm-dropCursor {border-left-color: #528bff;}
+.ͼo.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground, .ͼo .cm-selectionBackground, .ͼo .cm-content ::selection {background-color: #3E4451;}
+.ͼo .cm-panels {background-color: #21252b; color: #abb2bf;}
+.ͼo .cm-panels.cm-panels-top {border-bottom: 2px solid black;}
+.ͼo .cm-panels.cm-panels-bottom {border-top: 2px solid black;}
+.ͼo .cm-searchMatch {background-color: #72a1ff59; outline: 1px solid #457dff;}
+.ͼo .cm-searchMatch.cm-searchMatch-selected {background-color: #6199ff2f;}
+.ͼo .cm-activeLine {background-color: #6699ff0b;}
+.ͼo .cm-selectionMatch {background-color: #aafe661a;}
+.ͼo.cm-focused .cm-matchingBracket, .ͼo.cm-focused .cm-nonmatchingBracket {background-color: #bad0f847;}
+.ͼo .cm-gutters {background-color: #282c34; color: #7d8799; border: none;}
+.ͼo .cm-activeLineGutter {background-color: #2c313a;}
+.ͼo .cm-foldPlaceholder {background-color: transparent; border: none; color: #ddd;}
+.ͼo .cm-tooltip {border: none; background-color: #353a42;}
+.ͼo .cm-tooltip .cm-tooltip-arrow:before {border-top-color: transparent; border-bottom-color: transparent;}
+.ͼo .cm-tooltip .cm-tooltip-arrow:after {border-top-color: #353a42; border-bottom-color: #353a42;}
+.ͼo .cm-tooltip-autocomplete > ul > li[aria-selected] {background-color: #2c313a; color: #abb2bf;}
+.ͼ5 {color: #404740;}
+.ͼ6 {text-decoration: underline;}
+.ͼ7 {text-decoration: underline; font-weight: bold;}
+.ͼ8 {font-style: italic;}
+.ͼ9 {font-weight: bold;}
+.ͼa {text-decoration: line-through;}
+.ͼb {color: #708;}
+.ͼc {color: #219;}
+.ͼd {color: #164;}
+.ͼe {color: #a11;}
+.ͼf {color: #e40;}
+.ͼg {color: #00f;}
+.ͼh {color: #30a;}
+.ͼi {color: #085;}
+.ͼj {color: #167;}
+.ͼk {color: #256;}
+.ͼl {color: #00c;}
+.ͼm {color: #940;}
+.ͼn {color: #f00;}
+.ͼ4 .cm-line ::selection, .ͼ4 .cm-line::selection {background-color: transparent !important;}
+.ͼ4 .cm-line {caret-color: transparent !important;}
+.ͼ4 .cm-content :focus::selection, .ͼ4 .cm-content :focus ::selection {background-color: Highlight !important;}
+.ͼ4 .cm-content :focus {caret-color: initial !important;}
+.ͼ4 .cm-content {caret-color: transparent !important;}
+</style>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Playground - Online Python Compiler &amp; IDE</title>
+  <meta name="description" content="Python Playground - Fast online Python compiler and IDE. Run Python code in any browser tab with no installation.">
+  <meta name="keywords" content="python compiler, online python compiler, python online, python ide, run python online, python code runner, online python interpreter, python sandbox, python playground">
+  <link rel="canonical" href="https://python-playground.com/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://python-playground.com">
+  <meta property="og:title" content="Python Playground - Online Python Compiler &amp; IDE">
+  <meta property="og:description" content="Fast online Python compiler and IDE. Run Python code in any browser tab with no installation required.">
+  <meta property="og:site_name" content="Python Playground">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://python-playground.com">
+  <meta property="twitter:title" content="Python Playground - Online Python Compiler &amp; IDE">
+  <meta property="twitter:description" content="Fast online Python compiler and IDE. Run Python code in any browser tab with no installation required.">
+  
+  <link rel="icon" type="image/x-icon" href="https://python-playground.com/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://python-playground.com/assets/icons/icon16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://python-playground.com/assets/icons/icon32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="https://python-playground.com/assets/icons/icon48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://python-playground.com/assets/icons/icon96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://python-playground.com/assets/icons/icon180.png">
+  <link rel="manifest" href="https://python-playground.com/manifest.json">
+  <!-- Critical CSS inline for faster rendering -->
+  <style>
+    :root {
+      --font-sans: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+      --bg-primary: #121212;
+      --bg-secondary: #1e1e1e;
+      --bg-tertiary: #2a2a2a;
+      --bg-accent: #363636;
+      --text-primary: #e4e4e7;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --accent-primary: #3b82f6;
+      --accent-secondary: #6366f1;
+      --accent-gradient: linear-gradient(135deg, #3b82f6, #6366f1);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #3b82f6;
+      --info: #3b82f6;
+      --border-color: #3f3f46;
+      --shadow-color: rgba(0, 0, 0, 0.3);
+      --radius-full: 9999px;
+      --text-color: #e4e4e7;
+      --bg-color: #121212;
+      --card-bg: #1e1e1e;
+      --space-16: 1rem;
+      --space-20: 1.25rem;
+      --space-28: 1.75rem;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #fcfcfc;
+      --bg-tertiary: #f7f7f7;
+      --bg-accent: #cbd5e1;
+      --text-primary: #1e293b;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --border-color: #cbd5e1;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --card-bg: #ffffff;
+      --bg-color: #e7e7e74a;
+      --text-color: #1e293b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      background-color: var(--bg-color);
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Hide content until animations are ready */
+    .page-wrapper {
+      opacity: 0;
+      animation: pageReveal 0.6s ease-out 0.1s forwards;
+    }
+
+    @keyframes pageReveal {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-primary: #121212;
+        --text-color: #e4e4e7;
+        --bg-color: #121212;
+        --card-bg: #1e1e1e;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-primary: #f8fafc;
+        --text-color: #1e293b;
+        --bg-color: #e7e7e74a;
+        --card-bg: #ffffff;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="./Python Playground - Online Python Compiler &amp; IDE_files/fontawesome-subset-7d09511d.css" media="all" onload="this.media='all'">
+  <link rel="stylesheet" href="./Python Playground - Online Python Compiler &amp; IDE_files/main-b45b908a.min.css">
+  <script type="text/javascript" crossorigin="anonymous" async="" src="./Python Playground - Online Python Compiler &amp; IDE_files/array.js.download"></script><script defer="" src="./Python Playground - Online Python Compiler &amp; IDE_files/script.js.download" data-website-id="cd0c9817-16a1-4fdd-9778-ae5fd978e4bc"></script>
+  
+  <!-- Early theme initialization to prevent image flicker -->
+  <script>
+    (function() {
+      let savedTheme = null;
+      try {
+        savedTheme = localStorage.getItem('theme');
+      } catch (_) {}
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (savedTheme === null && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://python-playground.com/#software",
+        "name": "Python Playground",
+        "url": "https://python-playground.com",
+        "description": "Fast online Python compiler and IDE. Run Python code in any browser tab with no installation required.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "featureList": [
+          "Online Python Compiler",
+          "Browser-based IDE",
+          "Data Visualization",
+          "File Upload Support",
+          "Auto Save",
+          "Built-in Python Debugger",
+          "Python Turtle Graphics",
+          "No Installation Required"
+        ],
+        "browserRequirements": "Modern Web Browser",
+        "offers": [
+  {
+    "@type": "Offer",
+    "name": "Python Playground Core",
+    "category": "Free",
+    "price": "0",
+    "priceCurrency": "USD",
+    "url": "https://python-playground.com",
+    "description": "Free browser-based Python runner and local IDE features."
+  },
+  {
+    "@type": "Offer",
+    "name": "Python Playground Pro Lifetime",
+    "category": "One-time purchase",
+    "priceCurrency": "USD",
+    "url": "https://python-playground.com/pricing",
+    "description": "One-time Pro access for unlimited playgrounds, cloud sync, and cloud backups."
+  }
+]
+,
+        "publisher": {
+          "@id": "https://python-playground.com/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://python-playground.com/#organization",
+        "name": "Python Playground",
+        "url": "https://python-playground.com",
+        "description": "Python Playground provides a fast, easy and convenient Python compiler and editor that can be used in any browser tab as an online Python IDE.",
+        "foundingDate": "2025",
+        "knowsAbout": [
+          "Python Programming",
+          "Online Code Editors",
+          "Browser Extensions",
+          "Data Visualization",
+          "Web Development Tools"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://python-playground.com/#website",
+        "name": "Python Playground",
+        "alternateName": "Python Playground Online IDE",
+        "url": "https://python-playground.com",
+        "description": "Fast online Python compiler and IDE that runs in any browser tab. No installation required.",
+        "inLanguage": "en-US",
+        "copyrightYear": "2025",
+        "copyrightHolder": {
+          "@id": "https://python-playground.com/#organization"
+        },
+        "publisher": {
+          "@id": "https://python-playground.com/#organization"
+        },
+        "mainEntity": {
+          "@id": "https://python-playground.com/#software"
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Google tag (gtag.js) -->
+<script async="" src="./Python Playground - Online Python Compiler &amp; IDE_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'G-7R60XCPBKX');
+  
+</script>
+
+
+<!-- PostHog product analytics -->
+<script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture captureException startExceptionAutocapture stopExceptionAutocapture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags reloadFeatureFlags getFeatureFlag getFeatureFlagPayload group".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  function redactPostHogText(value) {
+    return typeof value === "string"
+      ? value.replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi, "[redacted-email]")
+      : value;
+  }
+
+  function stripPostHogUrlQuery(value) {
+    if (typeof value !== "string") return value;
+    try {
+      var url = new URL(value, window.location.origin);
+      return url.origin + url.pathname;
+    } catch (_) {
+      return redactPostHogText(value.split("?")[0].split("#")[0]);
+    }
+  }
+
+  function sanitizePostHogProperties(props) {
+    if (!props || typeof props !== "object") return props;
+    [
+      "code",
+      "python_code",
+      "source_code",
+      "stdout",
+      "stderr",
+      "output",
+      "filename",
+      "file_name",
+      "file_names",
+      "upload_name",
+      "upload_names",
+      "package_input",
+      "package_names",
+      "prompt",
+      "email",
+      "$email"
+    ].forEach(function(key) {
+      delete props[key];
+    });
+    Object.keys(props).forEach(function(key) {
+      if (typeof props[key] === "string") {
+        props[key] = redactPostHogText(props[key]);
+      }
+    });
+    [
+      "$current_url",
+      "$referrer",
+      "$session_entry_url",
+      "$session_referrer"
+    ].forEach(function(key) {
+      if (typeof props[key] === "string") {
+        props[key] = stripPostHogUrlQuery(props[key]);
+      }
+    });
+    if (typeof analyticsPagePathOverride === "string" && analyticsPagePathOverride) {
+      ["$current_url", "$session_entry_url"].forEach(function(key) {
+        if (typeof props[key] === "string") {
+          props[key] = analyticsPageLocationOverride;
+        }
+      });
+      if (typeof props.$pathname === "string") {
+        props.$pathname = analyticsPagePathOverride;
+      }
+    }
+
+    return props;
+  }
+
+  function isResizeObserverLoopMessage(value) {
+    return (
+      value === "ResizeObserver loop completed with undelivered notifications." ||
+      value === "ResizeObserver loop limit exceeded"
+    );
+  }
+
+  function redactOrDropSensitivePostHogEvent(event) {
+    if (!event || typeof event !== "object") return event;
+
+    var props = event.properties && typeof event.properties === "object" ? event.properties : {};
+    sanitizePostHogProperties(props);
+    sanitizePostHogProperties(event.$set);
+    sanitizePostHogProperties(event.$set_once);
+
+    if (event.event === "$exception") {
+      var exceptionList = Array.isArray(props.$exception_list) ? props.$exception_list : [];
+      var hasResizeObserverLoopException = exceptionList.some(function(exception) {
+        return isResizeObserverLoopMessage(String(exception && (exception.value || exception.$exception_value) || ""));
+      });
+      if (hasResizeObserverLoopException) return false;
+
+      var hasPythonUserException = exceptionList.some(function(exception) {
+        var type = String(exception && (exception.type || exception.$exception_type) || "");
+        var value = String(exception && (exception.value || exception.$exception_value) || "");
+        return (
+          value.indexOf("Traceback (most recent call last)") !== -1 ||
+          value.indexOf('File "<exec>"') !== -1 ||
+          value.indexOf('File "/user/') !== -1 ||
+          type === "PythonError"
+        );
+      });
+      if (hasPythonUserException) return false;
+      exceptionList.forEach(function(exception) {
+        if (exception && typeof exception === "object") {
+          exception.value = redactPostHogText(exception.value);
+          exception.$exception_value = redactPostHogText(exception.$exception_value);
+        }
+      });
+    }
+
+    return event;
+  }
+  posthog.init("phc_rX3k73P64jfeL85PdUa7fiAwJxJrLRNaLQzLtaofG2V5", {
+    api_host: "https://us.i.posthog.com",
+    defaults: '2026-01-30',
+    autocapture: false,
+    capture_pageview: true,
+    capture_pageleave: false,
+    capture_dead_clicks: false,
+    capture_exceptions: {
+      capture_unhandled_errors: true,
+      capture_unhandled_rejections: true,
+      capture_console_errors: false
+    },
+    disable_session_recording: true,
+    enable_recording_console_log: false,
+    person_profiles: 'identified_only',
+    before_send: redactOrDropSensitivePostHogEvent
+  });
+  posthog.register({
+    app_release: "81fc555aa832dbb304d3b23eaaee33c25f912850"
+  });
+</script>
+
+
+<script type="text/javascript" crossorigin="anonymous" src="./Python Playground - Online Python Compiler &amp; IDE_files/web-vitals-with-attribution.js.download"></script><script type="text/javascript" crossorigin="anonymous" src="./Python Playground - Online Python Compiler &amp; IDE_files/exception-autocapture.js.download"></script><script type="text/javascript" crossorigin="anonymous" src="./Python Playground - Online Python Compiler &amp; IDE_files/config.js.download"></script><script type="text/javascript" crossorigin="anonymous" src="./Python Playground - Online Python Compiler &amp; IDE_files/surveys.js.download"></script></head>
+<body class="fullscreen-active">
+  <div class="page-wrapper">
+    <header class="floating-header">
+  <a href="https://python-playground.com/" class="logo-link" title="Python Playground Home Page">
+    <div class="logo">
+      <i class="fab fa-python"></i>
+      <span>Python Playground</span>
+    </div>
+  </a>
+  <div class="header-actions">
+    <a href="https://chromewebstore.google.com/detail/python-playground/jfippgilnpggpddhmfjaaecadnfhcopa?utm_source=python_playground&amp;utm_medium=button&amp;utm_campaign=python_playground_button" target="_blank" rel="noopener noreferrer" class="install-btn" title="Install Python Playground extension" data-product-event="install_extension_click" data-product-surface="header">
+      <i class="fab fa-chrome"></i> <span class="install-btn-text">Extension</span>
+    </a>
+    <nav>
+  <a href="https://python-playground.com/" class="active">Home</a>
+  <a href="https://python-playground.com/help">Help</a>
+  <a href="https://python-playground.com/pricing">Pricing</a>
+</nav>
+
+    <div class="theme-switch">
+  <input type="checkbox" id="theme-toggle" aria-label="Toggle theme">
+  <label for="theme-toggle" class="theme-switch-label">
+    <span class="toggle-icon toggle-dark">
+      <i class="fas fa-moon"></i>
+    </span>
+    <span class="toggle-slider">
+      <span class="toggle-ball"></span>
+    </span>
+    <span class="toggle-icon toggle-light">
+      <i class="fas fa-sun"></i>
+    </span>
+  </label>
+</div> 
+  </div>
+</header>
+
+
+    <!-- Hero IDE Section - Full Width -->
+    <section class="hero-ide-section">
+      <div class="hero-ide-content">
+        <div class="hero-text animate-slide-up">
+          <h1>Python Playground - Code Python in Your Browser</h1>
+          <p class="hero-subtitle">Write and run Python code online with interactive output, data visualization, and zero setup</p>
+        </div>
+      </div>
+      
+      <div class="ide-wrapper animate-fade-in-up" style="animation-delay: 0.2s;">
+        <div id="python-ide-container" class="theme-Dark fullscreen sidebar-narrow" style="--bg-primary: #1a1d29; --bg-secondary: #252a37; --bg-tertiary: #2c3142; --bg-accent: #323a4f; --text-primary: #e2e8f0; --text-secondary: #a0aec0; --text-muted: #718096; --border-color: #384152; --header-bg: #252a37; --editor-bg: #282c34; --manager-bg: #1a1d29; --output-bg: #282c34; --variables-bg: #484b503b; --string-color: #98c379; --number-color: #e5c07b; --bool-color: #d19a66; --none-color: #c678dd; --exec-line: #f59e0b29; --sidebar-width: 112px;">
+          <div class="app-container">
+  <div id="workspace-live-status" class="workspace-live-status" role="status" aria-live="polite" aria-atomic="true"></div>
+  <!-- Main content area -->
+  <main class="main-content">
+    <!-- File explorer sidebar -->
+    <aside class="file-explorer">
+      <div class="file-explorer-header">
+        <span class="sidebar-title">Files</span>
+        <div class="file-actions">
+          <!-- New File button -->
+          <button id="new-file" class="icon-button" aria-label="New file" aria-disabled="false">
+            <i class="fas fa-plus"></i>
+          </button>
+          <input type="file" id="upload-file" style="display:none" multiple="" aria-disabled="false">
+          <!-- Upload File button -->
+          <button id="upload-file-btn" class="icon-button" aria-label="Upload files" aria-disabled="false">
+            <i class="fas fa-upload"></i>
+          </button>
+          <!-- Toggle Sidebar button -->
+          <button id="toggle-sidebar" class="icon-button" aria-label="Toggle sidebar">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="files-container">
+        <div id="workspace-catalog" class="workspace-catalog"><section class="workspace-section"><div class="section-header"><span id="workspace-project-files-heading" class="section-label">Project Files</span></div><ul class="file-list workspace-section-list" aria-labelledby="workspace-project-files-heading"><li class="workspace-item-row active" data-kind="file" data-item-id="97c2327b-84e4-4bd0-b29f-550db6b40937"><button type="button" class="file-item workspace-item-open" aria-label="Open topic4"><i class="fas fa-file" aria-hidden="true"></i><span class="workspace-item-details"><span class="workspace-item-name">topic4</span></span></button><span class="workspace-item-more"><button type="button" class="icon-button workspace-item-more-toggle" aria-label="More actions for topic4" aria-expanded="false"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button><span class="file-actions workspace-item-actions"><button type="button" class="icon-button workspace-item-action" aria-label="Download topic4"><i class="fas fa-download" aria-hidden="true"></i></button><button type="button" class="icon-button workspace-item-action" aria-label="Rename topic4"><i class="fas fa-edit" aria-hidden="true"></i></button><button type="button" class="icon-button workspace-item-action" aria-label="Delete topic4"><i class="fas fa-trash-alt" aria-hidden="true"></i></button></span></span></li></ul></section><section class="workspace-section"><div class="section-header"><span id="workspace-uploaded-files-heading" class="section-label">Uploaded Files</span></div><ul class="file-list workspace-section-list" aria-labelledby="workspace-uploaded-files-heading"><li class="workspace-item-row" data-kind="file" data-item-id="c04472e7-27b2-49a5-bb23-6892d0bcc889"><button type="button" class="file-item workspace-item-open" aria-label="Open student_performance (1).csv"><i class="fas fa-file-csv" aria-hidden="true"></i><span class="workspace-item-details"><span class="workspace-item-name">student_performance (1).csv</span><span class="workspace-item-meta">5.50 KB</span></span></button><span class="workspace-item-more"><button type="button" class="icon-button workspace-item-more-toggle" aria-label="More actions for student_performance (1).csv" aria-expanded="false"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></button><span class="file-actions workspace-item-actions"><button type="button" class="icon-button workspace-item-action" aria-label="Download student_performance (1).csv"><i class="fas fa-download" aria-hidden="true"></i></button><button type="button" class="icon-button workspace-item-action" aria-label="Rename student_performance (1).csv"><i class="fas fa-edit" aria-hidden="true"></i></button><button type="button" class="icon-button workspace-item-action" aria-label="Delete student_performance (1).csv"><i class="fas fa-trash-alt" aria-hidden="true"></i></button></span></span></li></ul></section></div>
+        <div id="workspace-empty-state" class="workspace-empty-state hidden" tabindex="-1">
+          <p>This playground is empty</p>
+        </div>
+      </div>
+    </aside>
+    <div id="sidebar-separator" class="resizer resizer-vertical" role="separator" aria-orientation="vertical" aria-label="Resize sidebar">
+      <div class="resizer-handle"></div>
+    </div>
+    <!-- Editor and output area -->
+    <div class="editor-container">
+      <div class="editor-header">
+        <div class="editor-top-row">
+          <div class="current-file">
+            <div id="playground-control" class="playground-control">
+              <button id="playground-title-btn" class="playground-title-button" type="button" aria-label="Playground actions" aria-haspopup="menu" aria-expanded="false">
+                <span id="current-playground-name" class="current-playground-name">Python Playground</span>
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <span id="current-playground-status" class="current-playground-status sync-local-only" role="status" aria-live="polite" title="This playground is saved in this browser.">Local only</span>
+              <div id="playground-action-menu" class="playground-action-menu" role="menu" hidden="">
+                <button type="button" class="is-primary" role="menuitem" data-playground-menu-action="new">
+                  <i class="fas fa-plus" aria-hidden="true"></i>
+                  <span>New Playground</span>
+                </button>
+                <button type="button" role="menuitem" data-playground-menu-action="rename">
+                  <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                  <span>Rename</span>
+                </button>
+                <button type="button" role="menuitem" data-playground-menu-action="export">
+                  <i class="fas fa-download" aria-hidden="true"></i>
+                  <span>Export</span>
+                </button>
+                <button type="button" role="menuitem" data-playground-menu-action="history">
+                  <i class="fas fa-history" aria-hidden="true"></i>
+                  <span>Run History</span>
+                </button>
+                <button type="button" role="menuitem" data-playground-menu-action="share">
+                  <i class="fas fa-share-alt" aria-hidden="true"></i>
+                  <span>Share Playground</span>
+                </button>
+                <button type="button" role="menuitem" data-playground-menu-action="manager">
+                  <i class="fas fa-layer-group" aria-hidden="true"></i>
+                  <span>Open Playground Manager</span>
+                </button>
+                <button type="button" role="menuitem" data-playground-menu-action="tour">
+                  <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  <span>Quick Tour</span>
+                </button>
+              </div>
+            </div>
+            <button id="playground-sync-btn" class="playground-sync-btn sync-local-only" type="button" aria-label="Upgrade to enable cloud sync" data-tooltip="Cloud sync requires Pro" data-sync-action="enable">
+              <i class="fas fa-cloud" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="editor-actions">
+            <details class="editor-more" open="">
+              <summary class="icon-button editor-more-toggle" aria-label="More editor actions">
+                <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
+              </summary>
+              <div class="editor-secondary-actions" role="group" aria-label="Editor actions">
+                <button id="playground-manager-btn" class="icon-button playground-manager-btn" aria-label="Playground Manager" type="button" data-manager-state="no-session">
+                  <i class="fas fa-layer-group" aria-hidden="true"></i>
+                </button>
+                <button id="share-playground-btn" class="icon-button share-playground-btn" aria-label="Share Playground" data-tooltip="Share Playground" type="button">
+                  <i class="fas fa-share-alt" aria-hidden="true"></i>
+                </button>
+                <!-- Debug button -->
+                <button id="debug" class="icon-button" aria-label="Start Debugging" type="button" aria-disabled="false" disabled="">
+                  <i class="fas fa-bug" aria-hidden="true"></i>
+                </button>
+                <!-- Manage Packages button -->
+                <div>
+                  <button id="manage-packages" class="icon-button" aria-label="Install packages from PyPI" type="button">
+                    <i class="fas fa-box" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </details>
+            <!-- Fullscreen button -->
+            <div class="fullscreen-button">
+              <button id="fullscreen-toggle" class="icon-button" aria-label="Toggle fullscreen" type="button">
+                <i class="fas fa-compress" aria-hidden="true"></i>
+              </button>
+            </div>
+            <!-- Run button -->
+            <div class="run-button">
+              <button id="run" class="primary-button" aria-label="Run Code" aria-disabled="false" disabled="">
+                <i class="fas fa-play" aria-hidden="true"></i>
+                <span class="run-spinner" aria-hidden="true"></span>
+                <p class="run-label">Run</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="editor-output">
+        <div id="editor-pane" class="editor-pane" style="height: 51.3024%;">
+          <div id="editor" class="code-editor" aria-label="Code editor"><div class="cm-editor cm-focused ͼ1 ͼ3 ͼ4 ͼo ͼ20 ͼ22"><div class="cm-announced" aria-live="polite"></div><div tabindex="-1" class="cm-scroller"><div class="cm-gutters cm-gutters-before" aria-hidden="true" style="min-height: 105.969px; position: sticky;"><div class="cm-gutter cm-lineNumbers"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;">9</div><div class="cm-gutterElement" style="height: 19.5938px; margin-top: 4px;">1</div><div class="cm-gutterElement" style="height: 19.5938px;">2</div><div class="cm-gutterElement" style="height: 19.5938px;">3</div><div class="cm-gutterElement cm-activeLineGutter" style="height: 19.5938px;">4</div><div class="cm-gutterElement" style="height: 19.5938px;">5</div></div><div class="cm-gutter cm-foldGutter"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;"><span title="Unfold line">›</span></div><div class="cm-gutterElement cm-activeLineGutter" style="height: 19.5938px; margin-top: 62.7812px;"></div></div><div class="cm-gutter cm-breakpoint-gutter"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;"><span class="cm-breakpoint-marker" aria-hidden="true"></span></div><div class="cm-gutterElement cm-activeLineGutter" style="height: 19.5938px; margin-top: 62.7812px;"></div></div></div><div spellcheck="false" autocorrect="off" autocapitalize="off" writingsuggestions="false" translate="no" contenteditable="true" class="cm-content" role="textbox" aria-multiline="true" aria-label="Code editor" style="tab-size: 4;"><div class="cm-line">import pandas as pd </div><div class="cm-line">data = pd.read_csv("student_performance.csv") </div><div class="cm-line">print(data.head()) </div><div class="cm-line cm-activeLine">print(data.info()) </div><div class="cm-line"><br></div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms; animation-name: cm-blink; transform: scale(1, 1);"><div class="cm-cursor cm-cursor-primary" style="left: 193.953px; top: 63.7812px; height: 17px;"></div></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2; transform: scale(1, 1);"></div></div></div></div>
+          <div id="workspace-empty-editor" class="workspace-empty-editor" aria-hidden="true" hidden="">
+            <p>This playground is empty</p>
+          </div>
+          <section id="workspace-blocked-upload" class="workspace-blocked-upload" aria-labelledby="workspace-blocked-upload-name" aria-describedby="workspace-blocked-upload-meta workspace-blocked-upload-reason" tabindex="-1" hidden="">
+            <i class="fas fa-file-circle-exclamation workspace-blocked-upload-icon" aria-hidden="true"></i>
+            <div class="workspace-blocked-upload-content">
+              <h2 id="workspace-blocked-upload-name"></h2>
+              <p id="workspace-blocked-upload-meta" class="workspace-blocked-upload-meta"></p>
+              <p id="workspace-blocked-upload-reason" class="workspace-blocked-upload-meta"></p>
+            </div>
+          </section>
+        </div>
+        <div id="separator" class="resizer">
+          <div class="resizer-handle"></div>
+        </div>
+        <div class="output-container" style="height: 48.6976%;">
+          <div class="output-header">
+            <div class="output-title">
+              <div class="output-tabs">
+                <button id="tab-output" class="output-tab active" type="button">Output</button>
+                <button id="tab-variables" class="output-tab" type="button" style="display: none;">Variables</button>
+              </div>
+            </div>
+            <div class="output-actions">
+              <div id="debug-controls" style="display: none;">
+                <button id="dbg-continue" class="icon-button" aria-label="Continue" disabled="" aria-disabled="true">
+                  <i class="fas fa-play"></i>
+                </button>
+                <button id="dbg-step-over" class="icon-button" aria-label="Step Over" disabled="" aria-disabled="true">
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+                <button id="dbg-step-into" class="icon-button" aria-label="Step Into" disabled="" aria-disabled="true">
+                  <i class="fas fa-turn-down"></i>
+                </button>
+                <button id="dbg-step-out" class="icon-button" aria-label="Step Out" disabled="" aria-disabled="true">
+                  <i class="fas fa-turn-up"></i>
+                </button>
+                <button id="dbg-stop" class="icon-button" aria-label="Stop Debugging" disabled="" aria-disabled="true">
+                  <i class="fas fa-stop"></i>
+                </button>
+                <button id="dbg-restart" class="icon-button" aria-label="Restart Debugging" disabled="" aria-disabled="true">
+                  <i class="fas fa-arrows-rotate"></i>
+                </button>
+              </div>
+              <!-- Copy Output button -->
+              <button id="copy-output" class="icon-button" aria-label="Copy output">
+                <i class="fas fa-copy"></i>
+              </button>
+              <!-- Clear Output button -->
+              <button id="clear-output" class="icon-button" aria-label="Clear output">
+                <i class="fas fa-eraser"></i>
+              </button>
+            </div>
+          </div>
+          <div id="output" class="output-panel" role="log" style="display: block;"><div class="empty-output-message">Click ▶ Run to see the output</div></div>
+          <pre id="variables" class="output-panel" style="display: none;"></pre>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div id="debug-overlay" class="overlay theme-Dark" aria-hidden="true">
+  <div class="modal-card debug-overlay-card theme-Dark" role="status" aria-live="polite">
+    <div class="debug-overlay-spinner" aria-hidden="true"></div>
+    <h3>Preparing Debugger</h3>
+    <p>Setting up the debug environment...</p>
+  </div>
+</div>
+
+<div id="billing-overlay" class="overlay theme-Dark" aria-hidden="true">
+  <div class="modal-card billing-overlay-card theme-Dark" role="status" aria-live="polite">
+    <div class="debug-overlay-spinner" aria-hidden="true"></div>
+    <h3 id="billing-overlay-title">Opening Paywall</h3>
+    <p id="billing-overlay-text">Preparing checkout options...</p>
+  </div>
+</div>
+
+<!-- Paywall modal target -->
+<div id="paywall-container"></div>
+
+<!-- Modal dialog -->
+<div id="modal-backdrop" class="overlay theme-Dark">
+  <div id="modal" class="modal-card theme-Dark">
+    <div id="modal-content"></div>
+    <div id="modal-actions"></div>
+  </div>
+</div>
+
+        <div class="tooltip" style="left: 154.992px; top: 45px; position: absolute;">Playground Actions</div></div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="section-container">
+        <h2 class="section-title animate-slide-up">Why Python Playground?</h2>
+        <div class="features-grid">
+          <div class="feature-card animate-fade-in-up" style="animation-delay: 0.1s;">
+            <div class="feature-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3 class="feature-title">Fast &amp; Easy</h3>
+            <p class="feature-description">Start coding in seconds with no setup or installation required</p>
+          </div>
+          <div class="feature-card animate-fade-in-up" style="animation-delay: 0.15s;">
+            <div class="feature-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="feature-title">Modern Python</h3>
+            <p class="feature-description">Full Python environment with popular libraries built-in</p>
+          </div>
+          <div class="feature-card animate-fade-in-up" style="animation-delay: 0.2s;">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="feature-title">Data Visualization</h3>
+            <p class="feature-description">Create interactive charts with matplotlib and plotly</p>
+          </div>
+          <div class="feature-card animate-fade-in-up" style="animation-delay: 0.25s;">
+            <div class="feature-icon">
+              <i class="fas fa-file-upload"></i>
+            </div>
+            <h3 class="feature-title">File Upload</h3>
+            <p class="feature-description">Import data files and work with them in your code</p>
+          </div>
+          <div class="feature-card animate-fade-in-up" style="animation-delay: 0.3s;">
+            <div class="feature-icon">
+              <i class="fas fa-save"></i>
+            </div>
+            <h3 class="feature-title">Auto Save</h3>
+            <p class="feature-description">Your code is saved locally as you type; Pro can sync it across devices</p>
+          </div>
+          <div class="feature-card animate-fade-in-up" style="animation-delay: 0.35s;">
+            <div class="feature-icon">
+              <i class="fas fa-bug"></i>
+            </div>
+            <h3 class="feature-title">Built-in Python Debugger</h3>
+            <p class="feature-description">Set breakpoints, step through code, and inspect variables - right in your browser</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="content-section">
+      <div class="section-container">
+        <h2 class="section-title animate-slide-up">How Python Playground Works</h2>
+        <div class="content-grid animate-fade-in-up" style="animation-delay: 0.1s;">
+          <div class="content-card">
+            <h3>Powered by Pyodide</h3>
+            <p>Python Playground uses Pyodide, a port of CPython for WebAssembly. This means you get real Python 3.12 running in your browser</p>
+            <ul>
+              <li>Full CPython 3.12 with standard library</li>
+              <li>Native performance via WebAssembly</li>
+              <li>Direct package installation from PyPI</li>
+              <li>Local-first execution by default, with optional Pro cloud sync</li>
+            </ul>
+          </div>
+          <div class="content-card">
+            <h3>Professional IDE Experience</h3>
+            <p>Built with CodeMirror 6. Enjoy the familiar professional programming experience with features you expect from a desktop IDE</p>
+            <ul>
+              <li>Intelligent syntax highlighting</li>
+              <li>Auto-indentation and bracket matching</li>
+              <li>Multiple files organization</li>
+              <li>Built-in debugger with breakpoints and variable inspection</li>
+              <li>Dark and light themes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who Is It For Section -->
+    <section class="features-section alt-bg">
+      <div class="section-container">
+        <h2 class="section-title animate-slide-up">Who Is Python Playground For?</h2>
+        <div class="features-grid">
+          <div class="feature-card animate-fade-in-up" style="animation-delay: 0.1s;">
+            <div class="feature-icon">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <h3 class="feature-title">Students</h3>
+            <p class="feature-description">Learn Python hassle-free with a local setup - perfect for homework, tutorials, and self-study</p>
+          </div>
+          <div class="feature-card animate-fade-in-up" style="animation-delay: 0.15s;">
+            <div class="feature-icon">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <h3 class="feature-title">Educators</h3>
+            <p class="feature-description">Teach Python without any prior setup for students - everyone gets the same environment right away</p>
+          </div>
+          <div class="feature-card animate-fade-in-up" style="animation-delay: 0.2s;">
+            <div class="feature-icon">
+              <i class="fas fa-flask"></i>
+            </div>
+            <h3 class="feature-title">Data Scientists</h3>
+            <p class="feature-description">Quickly explore data with pandas and visualize results with matplotlib or plotly</p>
+          </div>
+          <div class="feature-card animate-fade-in-up" style="animation-delay: 0.25s;">
+            <div class="feature-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3 class="feature-title">Professionals</h3>
+            <p class="feature-description">Test code snippets, debug logic, or prototype ideas on any computer</p>
+          </div>
+          <div class="feature-card animate-fade-in-up" style="animation-delay: 0.3s;">
+            <div class="feature-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3 class="feature-title">Interview Prep</h3>
+            <p class="feature-description">Practice solving programming and algorithm problems with instant feedback right in your browser</p>
+          </div>
+          <div class="feature-card animate-fade-in-up" style="animation-delay: 0.35s;">
+            <div class="feature-icon">
+              <i class="fas fa-magic"></i>
+            </div>
+            <h3 class="feature-title">Hobbyists</h3>
+            <p class="feature-description">Automate tasks, build scripts, or just have fun exploring Python in your free time</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="section-container">
+        <h2 class="section-title animate-slide-up">Common Questions</h2>
+        <div class="faq-list animate-fade-in-up" style="animation-delay: 0.1s;">
+          <details class="faq-item">
+            <summary class="faq-question">What is Python Playground?</summary>
+            <p class="faq-answer">Python online playground is a browser-based Python IDE that allows you to write, run, and test Python code online - fast, simple, and installation-free. The core workflow is free and local-first, with optional Pro cloud features for sync and backups.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">How is Python Playground different from other online IDEs?</summary>
+            <p class="faq-answer">Unlike many online IDEs, Python Playground runs Python locally in your browser by default. It also combines file handling, package management, data visualization support, and a built-in debugger with breakpoints, step-by-step execution, and variable inspection. Free users can organize local workspaces in Playground Manager, while Pro adds unlimited playgrounds, cloud sync, and cloud backups when you want access across devices.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">What libraries are supported?</summary>
+            <p class="faq-answer">Python coding playground uses Pyodide and supports pure Python wheel packages from PyPI. Many popular libraries, such as pandas, numpy, matplotlib, plotly, scipy, scikit-learn, and requests, are already built into online Python Playground, so you can simply import them.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Can I upload files to use in my code?</summary>
+            <p class="faq-answer">Yes! You can upload CSV, JSON, text files, and other data files directly into the IDE. Use them with any Python file operations just like on a local machine.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Is it free?</summary>
+            <p class="faq-answer">The core Python runner, local IDE, and up to 2 local playgrounds in Playground Manager are free and do not require an account. Pro is paid and unlocks unlimited playgrounds, cloud sync, cross-device access, and cloud backups.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Is my code secure?</summary>
+            <p class="faq-answer">Python execution runs locally in your browser by default using WebAssembly. If you enable Pro cloud sync, selected playground files, package settings, metadata, and uploads are stored in cloud infrastructure so they can be backed up and available across devices.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Can I debug Python code online?</summary>
+            <p class="faq-answer">Yes. Python Playground includes a built-in <a href="https://python-playground.com/python-debugger">Python debugger</a> for code in your project files. You can set breakpoints, continue execution, step through code, and inspect variables directly in the browser.</p>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Does Python Playground support python turtle?</summary>
+            <p class="faq-answer">Yes. You can run <a href="https://python-playground.com/python-turtle">python turtle</a> examples online and draw turtle graphics in the browser. It is a browser-native turtle renderer for learning and visual exercises, not a full desktop Tkinter replacement.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+    <div class="section-container">
+        <div class="cta-content animate-fade-in-up">
+            <div class="cta-text">
+                <h2>Get the Chrome Extension</h2>
+                <p>Run Python code directly from any browser tab with our Chrome extension</p>
+            </div>
+            <a href="https://chromewebstore.google.com/detail/python-playground/jfippgilnpggpddhmfjaaecadnfhcopa?utm_source=python_playground&amp;utm_medium=button&amp;utm_campaign=python_playground_button" target="_blank" rel="noopener noreferrer" class="cta-btn" title="Install Python Playground extension" data-product-event="install_extension_click" data-product-surface="cta">
+                <i class="fab fa-chrome"></i>
+                Install Extension
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Help Section -->
+    <section class="help-section">
+    <div class="section-container">
+        <h2 class="section-title animate-slide-up">Need Help Getting Started?</h2>
+        <div class="help-grid animate-fade-in-up" style="animation-delay: 0.1s;">
+            <a href="https://python-playground.com/help" class="help-card" title="Python Playground FAQ and tutorials">
+                <i class="fas fa-book"></i>
+                <div class="help-card-content">
+                    <h3>Help Center</h3>
+                    <p>FAQs and tutorials about our Python IDE</p>
+                </div>
+                <i class="fas fa-arrow-right help-arrow"></i>
+            </a>
+            <a href="mailto:support@python-playground.com" class="help-card" title="Contact Python Playground support">
+                <i class="fas fa-envelope"></i>
+                <div class="help-card-content">
+                    <h3>Contact Support</h3>
+                    <p>Get personalized assistance from our team</p>
+                </div>
+                <i class="fas fa-arrow-right help-arrow"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+    <footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-columns">
+      <div class="footer-company">
+        <div class="footer-brand">
+          <i class="fab fa-python" aria-hidden="true"></i>
+          <span>Python Playground</span>
+        </div>
+        <a href="mailto:support@python-playground.com" class="footer-email">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <span>support@python-playground.com</span>
+        </a>
+        <p class="footer-address">Captain Software Limited. Unit B, 11/F, 23 Thomson Road, Wan Chai, Hong Kong SAR.</p>
+      </div>
+
+      <div class="footer-column">
+        <p class="footer-heading">Legal</p>
+        <div class="footer-links footer-legal-links">
+          <a href="https://python-playground.com/privacy-policy">Privacy Policy</a>
+          <a href="https://python-playground.com/legal-notices">Legal Notice</a>
+          <a href="https://python-playground.com/terms-of-service">Terms of Service</a>
+          <a href="https://python-playground.com/refund-policy">Refund Policy</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <p class="footer-heading">Tools</p>
+        <div class="footer-links">
+          <a href="https://python-playground.com/online-python-compiler">Online Python Compiler</a>
+          <a href="https://python-playground.com/online-python-interpreter">Online Python Interpreter</a>
+          <a href="https://python-playground.com/python-code-runner">Python Code Runner</a>
+          <a href="https://python-playground.com/online-python-ide">Online Python IDE</a>
+          <a href="https://python-playground.com/python-sandbox">Python Sandbox</a>
+          <a href="https://python-playground.com/python-debugger">Python Debugger</a>
+          <a href="https://python-playground.com/python-turtle">Python Turtle</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> 
+
+  </div>
+  
+  <script defer="" src="./Python Playground - Online Python Compiler &amp; IDE_files/codemirror.bundle-6bc9dd8c.js.download"></script>
+  <script type="module" src="./Python Playground - Online Python Compiler &amp; IDE_files/main-DUXARVYY.js.download"></script>
+
+
+<div id="open-incognito-widget" role="button" tabindex="0" aria-label="Open current tab in incognito"><template shadowrootmode="open"><style>
+            :host {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                z-index: 2147483646;
+                opacity: 0.35;
+                padding: 0;
+                width: 8px;
+                height: 8px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: visible;
+                background-color: rgba(0, 0, 0, 0.55);
+            }
+            :host(.expanded) {
+                opacity: 1;
+                width: 52px;
+                height: 52px;
+                border-radius: 0 10px 0 0;
+                background-color: unset;
+            }
+            img {
+                width: 0;
+                height: 0;
+                object-fit: contain;
+                transition: width 0.2s ease, height 0.2s ease;
+            }
+            :host(.expanded) img {
+                width: calc(100% - 20px);
+                height: calc(100% - 20px);
+                transform: translate(-5px, 5px);
+                padding: 5px;
+                box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+                border-radius: 10px;
+                background-color: #c6c6c7;
+            }
+            button {
+                position: absolute;
+                top: 2px;
+                right: 2px;
+                width: 18px;
+                height: 18px;
+                border: none;
+                border-radius: 50%;
+                background-color: rgba(0, 0, 0, 0.55);
+                color: #ffffff;
+                font-size: 14px;
+                line-height: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                opacity: 0;
+                pointer-events: none;
+            }
+            :host(.expanded) button {
+                opacity: 0.9;
+                pointer-events: auto;
+            }
+        </style><img src="chrome-extension://ebgmlfdcgihhfheckfdmhnmedjigogmm/images/48x48.png" alt=""><button type="button" aria-label="Hide widget" title="Hide widget">×</button></template></div></body></html>
